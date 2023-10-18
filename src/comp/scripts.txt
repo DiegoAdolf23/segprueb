@@ -1,0 +1,45 @@
+    const camposRegistro ={nombre:"", edad:"", genero:""};
+    const [objeto, setObjeto] = useState(camposRegistro);
+
+    const handleStatusChange =(e) => {
+        const{name,value} =e.target;
+        setObjeto({...objeto, [name]:value});
+        console.log(objeto);
+    }
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+        if(props.idActual ===""){
+          if(validarForm()){
+              addDoc(collection(db, 'persona'), objeto);
+              console.log('Se guardó...');
+              props.fnRead();
+          }else{
+              console.log('No se guardó...');   
+          }
+        }else{
+          return false;
+        }
+        setObjeto(camposRegistro);
+        } 
+    const validarForm = () => {
+        if(objeto.nombre ===""|| /^\s+$/.test(objeto.nombre)){
+          alert("Escriba nombres...");
+          return false;
+        }
+        return true;
+    };
+    useEffect(() =>{
+    }, [props.idActual]);
+    const obtenerDatosPorId= async (xId) =>{
+    }
+
+    <form onSubmit={handleSubmit}>
+
+        <input type="text" name="nombre" placeholder="Nombres..." onChange={handleStatusChange} value={objeto.nombre}/> <br/>
+        <input type="text" name="edad" placeholder="Edad..." onChange={handleStatusChange} value={objeto.edad}/> <br/>
+        <input type="text" name="genero" placeholder="Genero..." onChange={handleStatusChange} value={objeto.genero}/> <br/>
+        <button>
+            {props.idActual ===""? "Guardar": "Actualizar"}
+        </button>
+
+    </form>
