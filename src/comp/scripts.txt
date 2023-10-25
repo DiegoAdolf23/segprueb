@@ -14,7 +14,7 @@
               console.log('Se guardó...');
               props.fnRead();
           }else{
-              console.log('No se guardó...');   
+              console.log('No se guardó...');    
           }
         }else{
           return false;
@@ -43,3 +43,48 @@
         </button>
 
     </form>
+
+
+//25/10/23 Codigo Incompleto
+
+  const handleSubmit = (e) =>{
+    try{
+      e.preventDefault();
+      if (props.idActual === ""){
+        if(validarForm()){
+          addDoc(collection(db, 'persona'), objeto);
+          console.log ('Se guardo...');
+        }else{
+          console.log('No se guardo...');
+        }
+      }else{
+          await updateDoc(doc(collection(db, "persona"), props.idActual), objeto);
+          console.log("Se actualizo ...");
+          props.setIdActual('');
+      }
+        setObjeto(camposRegistro);
+    } catch (error){
+      console.log("Error en CREAR o UPDATE",error);
+    }
+  }
+  const handleStatusChange =(e) => {
+    const{name,value} =e.target;
+    setObjeto({...objeto, [name]:value});
+    console.log(objeto);
+  }
+  useEffect(() =>{
+    if (props.idActual ===""){
+        setObjeto({...camposRegistro});
+    }else{
+        obtenerDatosPorId(props.idActual);
+    }
+  }, [props.idActual]);
+  const obtenerDatosPorId= async (xId) =>{
+    const objPorId = doc(db, "persona", xId);
+    const docPorId = await getDoc(objPorId);
+    if (docPorId.exists()){
+      setObjeto (docPorId.data());
+    }else{
+      console.log("No hay doc...");
+    }
+  }
