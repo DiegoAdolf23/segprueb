@@ -35,7 +35,7 @@ function App() {
   const fnDelete =async (xId) =>{
     if (window.confirm("Confirme para eliminar")){
       await deleteDoc(doc(db, "persona", xId));
-      console.log("Se elimino..."+xId);
+      alert("Se elimino..."+xId+" con exito");
     }
   }
   return (

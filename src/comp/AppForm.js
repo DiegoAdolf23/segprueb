@@ -2,7 +2,7 @@ import {collection, doc, getDoc, addDoc, updateDoc} from "firebase/firestore";
 import React, {useEffect, useState} from 'react';
 import firebase, {db} from  './firebase';
 
-const AppForm = () => {
+const AppForm = (props) => {
 
   const camposRegistro ={nombre:"", edad:"", genero:""};
   const [objeto, setObjeto] = useState(camposRegistro);
@@ -16,14 +16,20 @@ const AppForm = () => {
     return true;
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     try{
       e.preventDefault();
+      if (props.idActual === ""){
         if(validarForm()){
           addDoc(collection(db, 'persona'), objeto);
           console.log ('Se guardo...');
         }else{
           console.log('No se guardo...');
+        }
+      }else{
+          await updateDoc(doc(collection(db, "persona"), props.idActual), objeto);
+          console.log("Se actualizo ...");
+          props.setIdActual('');
         }
         setObjeto(camposRegistro);
     } catch (error){
@@ -35,7 +41,13 @@ const AppForm = () => {
     setObjeto({...objeto, [name]:value});
     console.log(objeto);
   }
-
+  useEffect(() =>{
+    if (props.idActual ===""){
+        setObjeto({...camposRegistro});
+    }else{
+        obtenerDatosPorId(props.idActual);
+    }
+  }, [props.idActual]);
   const obtenerDatosPorId= async (xId) =>{
     const objPorId = doc(db, "persona", xId);
     const docPorId = await getDoc(objPorId);
@@ -58,7 +70,7 @@ const AppForm = () => {
       <option value="M">Masculino</option>
       <option value="F">Femenino</option>
     </select>
-    <button >Guardar/Actualizar</button>
+    <button>{props.idActual === "" ? "Guardar" : "Actualizar"}</button>
     </form>
 
     </div>
