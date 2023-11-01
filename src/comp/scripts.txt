@@ -88,3 +88,10 @@
       console.log("No hay doc...");
     }
   }
+
+31//10//2023 APPJS
+import { collection, getDocs, query, doc, deleteDoc, where, onSnapshot } from 'firebase/firestore';
+import C01componente from './comp/C01componente';
+import C02contador from './comp/C02contador';
+import firebase, {db} from  './comp/firebase';
+import AppForm from './comp/AppForm.js';
