@@ -1,17 +1,19 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-//import BarraRutasPublic from './ruteo/BarraRutasPublic'
-import BarraProtected from './ruteo/BarraRutasProtected'
-import BarraPublic from './ruteo/BarraRutasPublic'
+import Rutas from './ruteo/Rutas'
+import BarraNavegacion from './ruteo/BarraNavegacion'
 
 const App = () => {
   return (
     <div style={{background: "violet"}}>
 
       <h1>App.js</h1>
+    {/*
       <Router>
-        <BarraProtected/>:<BarraPublic/> 
-      </Router>
+        <BarraNavegacion/>
+        <Rutas/>
+      </Router> 
+  */}
     </div>
   )
 }
