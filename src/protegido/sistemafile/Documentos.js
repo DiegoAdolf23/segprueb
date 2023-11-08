@@ -5,6 +5,7 @@ const Documentos = () => {
     <div id='file'>
       <h1>Documentos</h1>
       Página para documentos...
+      Nuevo documentoword
     </div>
   )
 }

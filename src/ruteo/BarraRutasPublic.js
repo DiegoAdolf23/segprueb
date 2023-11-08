@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import Home from '../public/Home';
 import Dashboard from '../public/Dashboard';
 import Contacto from '../public/Contacto';
+import Informacion from '../public/Informacion';
+import Noticias from '../public/Noticias';
 
 
 
@@ -35,7 +37,11 @@ const BarraRutasPublic = () => {
           
           <div id="menu">
             <ul>
-              <li><Link to="/home">Home</Link> </li>  
+              <li><Link to="/home">Home</Link> </li>
+              <li><Link to="/dashboard">Portada</Link> </li>  
+              <li><Link to="/contacto">Contacto</Link> </li>
+              <li><Link to="/informacion">Informacion</Link> </li>
+              <li><Link to="/noticias">Noticias</Link> </li>    
             </ul>
           </div>
         </nav>
@@ -44,7 +50,8 @@ const BarraRutasPublic = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contacto" element={<Contacto />} />
-
+          <Route path="/informacion" element={<Informacion/>} />
+          <Route path="/noticias" element={<Noticias/>} />
         </Routes> 
       </div>
     )

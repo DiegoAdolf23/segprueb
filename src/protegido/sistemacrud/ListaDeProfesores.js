@@ -1,10 +1,13 @@
 import React from 'react'
 
 const ListaDeProfesores = () => {
+  
   return (
     <div id="sis">
-      <h1>ListaDeProfesores</h1>
+      <h1>ListaDeProfesoreswaos</h1>
       Lisat de profesores...
+      Anibal itzael
+      Juanito chasqui
     </div>
   )
 }

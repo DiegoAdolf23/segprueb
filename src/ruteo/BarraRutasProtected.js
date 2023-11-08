@@ -18,6 +18,10 @@ import Fotos from '../protegido/sistemafile/Fotos';
 //////////////////////// PAG. PUBLICOS /////////////////
 import RegisterForm from '../login/RegisterForm';
 import LoginForm from '../login/LoginForm';
+import AppLista from '../protegido/sistemacrud/AppLista'; 
+import ListaDeProfesores from '../protegido/sistemacrud/ListaDeProfesores'; 
+import Documentos from '../protegido/sistemafile/Documentos';
+import Pdfss from '../protegido/sistemafile/Pdfss';
 
 const BarraRutasProtected = () => {
     const { user } = useAuth();
@@ -41,9 +45,12 @@ const BarraRutasProtected = () => {
               
           <div id="menu">
             <ul>
-              <li><Link to="/sistema-crud/alumnos">Alumnos</Link> </li>
+              <li><Link to="/sistema-crud/applista">Alumnos(Applista)</Link> </li>
+              <li><Link to="/sistema-crud/profesores">Profesores</Link> </li>
                       
               <li><Link to="/sistema-file/fotos">Fotos</Link> </li>
+              <li><Link to="/sistema-file/docword">Documento Word</Link> </li>
+              <li><Link to="/sistema-file/pdf">Documento Pdf</Link> </li>
             </ul>
           </div>
         </nav>
@@ -56,13 +63,16 @@ const BarraRutasProtected = () => {
           
           <Route path="/sistema-crud" element={<MarcoParaSistemaCRUD />}>
             <Route index element={<SistemaCRUD />} />
-            <Route path="alumnos" element={<ListaDeAlumnos />} />
+            <Route path="Applista" element={<AppLista/>} />
+            <Route path="profesores" element={<ListaDeProfesores/>} />
           </Route>
   
   
           <Route path="/sistema-file" element={<MarcoParaSistemaFILE />}>
             <Route index element={<SistemaFILE />} />
             <Route path="fotos" element={<Fotos />} />
+            <Route path="docword" element={<Documentos/>} />
+            <Route path="pdf" element={<Pdfss/>} />
           </Route>
   
         </Routes>        

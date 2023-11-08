@@ -5,7 +5,7 @@ import { db } from '../../conexion/firebase';
  
 const AppLista = (props) => {
 
-  ////// Lectura fnRead ///////////
+  ////// Lectura fnRead /////////////
   const [docBD, setDocBD] = useState([]);
   const fnRead = () => {
     const xColeccionConQuery = query(collection(db, 'persona'));        // Dato de BD
@@ -34,7 +34,7 @@ const AppLista = (props) => {
     <div style={{background:"greenyellow", padding:"10px"}}>
       <h1>AppList.js</h1>
       <AppForm {...{idActual, setIdActual}} />  {/* Envios de variables */}
-      <h3>Lista de clientes</h3>
+      <h3>Lista de clientes☺☺☺☺</h3>
       {
         docBD.map((row, index) =>               // Extraer registro e index
           <p key={row.id}>                      {/* Asignar key a <p> */}
