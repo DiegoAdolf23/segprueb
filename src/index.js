@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {AuthProvider} from  './ruteo/AuthContext';
 
-import 'bootswatch/dist/cyborg/bootstrap.min.css';
+import 'bootswatch/dist/solar/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

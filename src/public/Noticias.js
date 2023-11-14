@@ -6,7 +6,7 @@ const Noticias = () => {
         Bienvenido a la pestaña de Noticias
         <h3>Noticia 1</h3>
         <h3>Noticia 2</h3>
-        <h3>Noticia 3</h3>
+        <h3>Noticia 32</h3>
     </div>
   )
 }

@@ -101,7 +101,7 @@ const AppForm = (props) => {
   //console.log(objeto);
 //style={{ background:"orange", padding:"10px" }}
   return (
-    <div id='public'>
+    <div>
       
       <form className='card card-body' onSubmit={handleSubmit}>
 

@@ -29,28 +29,53 @@ const BarraRutasProtected = () => {
     const navigate = useNavigate();
   
     const handleSignOut = () => {
+      if (user) {
+        signOut(auth)
+          .then(() => {
+            // Cierre de sesión exitoso
+            navigate('/home'); // Redirigir a ruta /home
+          })
+          .catch((error) => {
+            console.error('Error al cerrar sesión:', error);
+          });
+      }
     }
   
     return (
-      <div style={{ background:"royalblue", padding:"10px" }}>
+      <div > 
         <nav>
           <div id="login">
             <ul>
               <li><Link to="/nuevoregistro">Registrar</Link></li>
-  
-              <li><Link onClick={handleSignOut} >Cerrar sesión</Link> </li> 
+              {user ? (         ////////  Para cerrar sesión   ///////////
+                <li><Link onClick={handleSignOut} > Cerrar sesión </Link> </li> 
+                ) : (
+                <li> <Link to="/iniciarsesion">Iniciar sesión</Link> </li>
+              )}
+
+              <li><Link to="/nuevoregistro">Registrar</Link></li>
+
+              {user ? (         ////////  Usuario autenticado  ///////////
+                <li>Usuario autenticado: <span> {user.email}</span> </li> 
+                ) : (
+                null
+              )}
   
             </ul>
           </div>
               
           <div id="menu">
             <ul>
-              <li><Link to="/sistema-crud/applista">Alumnos(Applista)</Link> </li>
+              <li><Link to="/sistema-file/docword">Carreras</Link> </li>
+              <li><Link to="/sistema-file/fotos">Deportes</Link> </li>
+              <li><Link to="/sistema-file/pdf">Egresadoss</Link> </li>
               <li><Link to="/sistema-crud/profesores">Profesores</Link> </li>
+              <li><Link to="/sistema-crud/applista">Alumnos(Applista)</Link> </li>
+              
                       
-              <li><Link to="/sistema-file/fotos">Fotos</Link> </li>
-              <li><Link to="/sistema-file/docword">Documento Word</Link> </li>
-              <li><Link to="/sistema-file/pdf">Documento Pdf</Link> </li>
+              
+              
+              
             </ul>
           </div>
         </nav>

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useAuth } from '../ruteo/AuthContext'; // (7). Importando contexto
 import { useNavigate } from 'react-router-dom';
 
+import "react-toastify/dist/ReactToastify.css";           // Para estilos
+import { ToastContainer, toast } from "react-toastify";
+
 function LoginForm() {
   
   const { signIn } = useAuth();                 // (7). Usando el contexto
@@ -32,6 +35,7 @@ function LoginForm() {
 
   return (
     <div id='public'>
+      <ToastContainer/>
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSignIn}>
         <div>

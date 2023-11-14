@@ -3,8 +3,8 @@ import React from 'react'
 const Fotos = () => {
   return (
     <div id='file'>
-      <h1>Fotos</h1>
-      Página para fotos...
+      <h1>Deportes</h1>
+      Página para escribir la lista de Deportes
     </div>
   )
 }

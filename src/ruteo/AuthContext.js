@@ -1,4 +1,4 @@
-// (1) AuthContext.js
+  // (1) AuthContext.js
 
 // (2) Importando las bibliotecas necesarias
 import React, { createContext, useContext, useState, useEffect } from 'react';
@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
   }, []);
   
   // (5) Def. funciones: iniciar, cerrar, registrar usuarios, etc.
-  const signIn = async (email, password) => {     //Iniciar sesión
+  const signIn = async (email, password) => {     //Iniciar sesión 
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log('Inicio sesión');
